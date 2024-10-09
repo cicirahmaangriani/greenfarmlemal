@@ -3,11 +3,20 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
+html,
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -32,14 +41,14 @@ body {
 .navbar-nav .nav-link {
   color: #333 !important;
   font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-bottom 0.3s;
+  border-bottom: 2px solid transparent; /* Tambahkan border transparan */
 }
 
 .navbar-nav .nav-link:hover {
-    background-color: #6a994e; /* Warna latar saat hover */
-    color: white !important; /* Ubah warna teks saat hover */
-    border-radius: 5px; /* Membuat sudut bulat */
-    padding: 5px 10px;
+  background-color: transparent; /* Tetap transparan pada latar */
+  color: #6a994e !important; /* Warna teks berubah menjadi hijau */
+  border-bottom: 2px solid #6a994e; /* Ubah warna border saat di-hover */
 }
 
 /* Hero Section */
@@ -115,7 +124,6 @@ body {
 }
 
 .forecast-card {
-  background-color: #ffd966;
   width: 120px;
   padding: 20px;
   border-radius: 10px;
@@ -124,27 +132,45 @@ body {
   color: #333;
 }
 
-/* Custom Colors for Each Day */
-.forecast-card:nth-child(2) {
-  background-color: #ffeb99;
+/* Warna untuk Cuaca Cerah */
+.forecast-card.sunny {
+  background-color: #ffd700;
+  color: #333;
 }
 
-.forecast-card:nth-child(3) {
-  background-color: #88a6c7;
+/* Warna untuk Cuaca Cerah Berawan */
+.forecast-card.partly-cloudy {
+  background-color: #ffec8b;
+  color: #333;
+}
+
+/* Warna untuk Cuaca Berawan */
+.forecast-card.cloudy {
+  background-color: #a9a9a9;
   color: #fff;
 }
 
-.forecast-card:nth-child(4) {
-  background-color: #ffdb4d;
+/* Warna untuk Hujan Ringan */
+.forecast-card.light-rain {
+  background-color: #87cefa;
+  color: #333;
 }
 
-.forecast-card:nth-child(5) {
-  background-color: #667080;
+/* Warna untuk Hujan Sedang */
+.forecast-card.moderate-rain {
+  background-color: #4682b4;
   color: #fff;
 }
 
-.forecast-card:nth-child(6) {
-  background-color: #3b4a6b;
+/* Warna untuk Hujan Lebat */
+.forecast-card.heavy-rain {
+  background-color: #0000cd;
+  color: #fff;
+}
+
+/* Warna untuk Hujan Petir */
+.forecast-card.thunderstorm {
+  background-color: #4b0082;
   color: #fff;
 }
 
@@ -229,6 +255,53 @@ body {
 
 .shadow-sm {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.proyek-hijau {
+  background-color: #fefae0;
+  padding: 50px 0;
+}
+
+.proyek-hijau h5 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #6a994e;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.proyek-hijau h5::after {
+  content: "";
+  width: 60px;
+  height: 2px;
+  background-color: #6a994e;
+  margin: 5px auto;
+  display: block;
+}
+
+.proyek-hijau h3 {
+  font-weight: bold;
+  color: #1e6091;
+  margin-bottom: 15px;
+}
+
+.proyek-hijau p {
+  color: #7d8f69;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.btn-outline-success {
+  border: 2px solid #6a994e;
+  color: #6a994e;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btn-outline-success:hover {
+  background-color: #6a994e;
+  color: #fff;
 }
 
 /* Back to Top Button */

@@ -15,7 +15,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand">
                     <img src="./layout/image/logonavbar.png" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,16 +24,16 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#weatherforecast">Radar Cuaca</a>
+                            <a class="smooth-scroll nav-link text-white" href="#weatherforecast" data-target="weatherforecast">Radar Cuaca</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#farmmodern">Panduan</a>
+                            <a class="smooth-scroll nav-link text-white" href="#farmmodern" data-target="farmmodern">Panduan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Proyek Hijau</a>
+                            <a class="smooth-scroll nav-link text-white" href="#proyekhijau" data-target="proyekhijau">Proyek Hijau</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Kontak Kami</a>
+                            <a class="smooth-scroll nav-link text-white" href="#" data-target="">Kontak Kami</a>
                         </li>
                     </ul>
                 </div>
