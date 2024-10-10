@@ -6,6 +6,18 @@
   overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+  .forecast-card {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .farming-methods,
+  .weather-forecast,
+  .proyek-hijau {
+    padding: 15px 5%;
+  }
+}
+
 html,
 body {
   font-family: Arial, sans-serif;
@@ -17,6 +29,7 @@ body {
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
+  overflow-x: hidden;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -89,7 +102,7 @@ body {
 /* Weather Forecast Section */
 .weather-forecast {
   background-color: #fefae0;
-  padding: 50px 10%;
+  padding: 20px 10%;
   text-align: center;
 }
 
@@ -125,11 +138,21 @@ body {
 
 .forecast-card {
   width: 120px;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   text-align: center;
-  margin: 10px;
+  margin: 5px;
   color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.down img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0; /* Menghapus margin agar tidak ada jarak ekstra */
+  padding: 0; /* Menghapus padding */
 }
 
 /* Warna untuk Cuaca Cerah */
@@ -191,6 +214,7 @@ body {
 
 .farming-methods {
   background-color: #fefae0;
+  padding: 20px 10%;
 }
 
 .farming-methods h5 {
@@ -220,6 +244,7 @@ body {
 
 .steps-section {
   background-color: #fefae0;
+  padding: 20px 10%;
 }
 
 .card {
@@ -238,6 +263,27 @@ body {
 .card-title {
   font-weight: bold;
   color: #333;
+}
+
+.card-body {
+  padding: 15px;
+  text-align: left;
+}
+
+.card-body h5 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.card-body p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.card-img-top {
+  border-radius: 50%;
+  margin-bottom: 15px;
 }
 
 .text-brown {
@@ -259,7 +305,7 @@ body {
 
 .proyek-hijau {
   background-color: #fefae0;
-  padding: 50px 0;
+  padding: 20px 10%;
 }
 
 .proyek-hijau h5 {
@@ -268,6 +314,13 @@ body {
   color: #6a994e;
   position: relative;
   margin-bottom: 20px;
+}
+
+.proyek-hijau .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .proyek-hijau h5::after {
@@ -304,6 +357,10 @@ body {
   color: #fff;
 }
 
+.text-success {
+  color: #6a994e !important;
+}
+
 /* Back to Top Button */
 #backToTopBtn {
   display: none; /* Tombol akan tersembunyi secara default */
@@ -328,8 +385,151 @@ body {
 
 /* Footer */
 footer {
-  background-color: #333;
-  color: white;
+  background-color: transparent; /* Agar transparan */
+  padding: 0; /* Menghapus padding */
+  margin-top: -10px; /* Bisa menyesuaikan nilai negatif agar gambar lebih naik */
+}
+
+.center-footer {
+  margin: 0 20px;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+#main-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  background-color: #223218;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.info-center {
   text-align: center;
-  padding: 10px;
+  width: 100%;
+  color: white;
+  position: relative;
+  padding: 10px 0;
+}
+
+.info-center::before {
+  content: "";
+  position: absolute;
+  top: 0; /* Garis muncul di atas teks */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px; /* Panjang garis, bisa disesuaikan */
+  height: 1px; /* Ketebalan garis */
+  background-color: white; /* Warna garis */
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Jarak antara ikon media sosial */
+}
+
+.social-media a img {
+  width: 180px; /* Sesuaikan dengan ukuran yang Anda inginkan */
+  height: 208px;
+  object-fit: cover;
+  transition: transform 0.2s; /* Agar gambar memiliki efek saat di-hover */
+}
+
+.social-media a img:hover {
+  transform: scale(1.1); /* Menambah sedikit efek zoom saat di-hover */
+}
+
+.aquaponik-section,
+.stepsa-section {
+  background-color: #fefae0;
+  padding: 50px 0;
+  padding-bottom: 0; /* Mengurangi jarak bawah dari section terakhir */
+}
+
+.stepsa-section h5 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #6a994e;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.stepsa-list {
+  list-style: none;
+  padding: 0;
+}
+
+.stepsa-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.stepa-content h6 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.stepa-content p {
+  margin: 0;
+  color: #7d8f69;
+  line-height: 1.6;
+}
+
+.about-us-section {
+  background-color: #fefae0;
+  width: 100%;
+}
+
+.about-us-section .navbaraboutus {
+  width: 70%;
+}
+
+.about-title {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  min-height: 250px;
+  position: absolute; /* Mengatur posisi box agar absolut */
+  left: -20px; /* Menggeser box ke kiri untuk menutupi bagian belakang teks */
+  top: 50%;
+  transform: translateY(-50%); /* Menempatkan box di tengah secara vertikal */
+  z-index: -1; /* Menempatkan box di belakang teks */
+}
+
+.about-title h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 auto; /* Agar box berada di tengah */
+}
+
+.team-section {
+  background-color: #fefae0;
+  padding: 50px 0;
+}
+
+.team-section h5 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #6a994e;
+  margin-bottom: 20px;
 }

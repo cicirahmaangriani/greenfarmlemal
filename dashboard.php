@@ -128,22 +128,26 @@ curl_close($ch);
     <div class="row justify-content-center">
         <!-- Aquaponik -->
         <div class="col-md-5 d-flex align-items-stretch mb-4">
-            <div class="card border-0 w-100 text-center">
+            <div class="card border-0 text-center">
                 <div class="card-body">
                     <h3 class="text-primary mb-3">Aquaponik</h3>
-                    <img src="./layout/image/aquaponik.png" alt="Aquaponik" class="img-fluid rounded-image mb-3">
+                    <a href="aquaponik">
+                    <img src="./layout/image/aquaponik.jpg" alt="Aquaponik" class="img-fluid rounded-image mb-3">
+                    </a>
                     <p class="text-muted">Aquaponik adalah sistem pertanian berkelanjutan yang menggabungkan budidaya ikan dan tanaman. Limbah ikan menyediakan nutrisi bagi tanaman, sementara tanaman menyaring air untuk ikan, menciptakan sirkulasi yang efisien. Sistem ini menciptakan ekosistem yang berkelanjutan, di mana ikan dan tanaman saling mendukung, serta menggunakan air lebih efisien dibanding metode pertanian konvensional.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Hydroponik -->
+        <!-- hidroponik -->
         <div class="col-md-5 d-flex align-items-stretch mb-4">
-            <div class="card border-0 w-100 text-center">
+            <div class="card border-0 text-center">
                 <div class="card-body">
-                    <h3 class="text-primary mb-3">Hydroponik</h3>
-                    <img src="./layout/image/hidroponik.png" alt="Hydroponik" class="img-fluid rounded-image mb-3">
-                    <p class="text-muted">Hydroponik adalah metode menanam tanpa tanah, menggunakan air yang kaya nutrisi untuk memberi makan tanaman. Di mana akar tanaman ditanam dalam air atau media tumbuh seperti pasir, kerikil, atau serat kelapa. Ini efisien dalam penggunaan air dan cocok untuk ruang terbatas atau lingkungan yang tidak cocok untuk pertanian tradisional.</p>
+                    <h3 class="text-primary mb-3">Hidroponik</h3>
+                    <a href="hidroponik">
+                    <img src="./layout/image/hidroponik1.png" alt="Hydroponik" class="img-fluid rounded-image mb-3">
+                    </a>
+                    <p class="text-muted">Hidroponik adalah metode menanam tanpa tanah, menggunakan air yang kaya nutrisi untuk memberi makan tanaman. Di mana akar tanaman ditanam dalam air atau media tumbuh seperti pasir, kerikil, atau serat kelapa. Ini efisien dalam penggunaan air dan cocok untuk ruang terbatas atau lingkungan yang tidak cocok untuk pertanian tradisional.</p>
                 </div>
             </div>
         </div>
@@ -162,7 +166,6 @@ curl_close($ch);
                         </div>
                         <h5 class="card-title text-uppercase">Langkah Awal</h5>
                         <p class="card-text">Mari kita bahas langkah-langkah utama dari kedua sistem Aquaponik dan Hidroponik ini.</p>
-                        <a href="#" class="text-decoration-none text-brown">Lebih Banyak</a>
                     </div>
                 </div>
             </div>
@@ -175,7 +178,6 @@ curl_close($ch);
                         </div>
                         <h5 class="card-title text-uppercase">Jenis</h5>
                         <p class="card-text">Mari kita jelajahi jenis-jenis utama dari kedua metode ini dan bagaimana mereka berfungsi.</p>
-                        <a href="#" class="text-decoration-none text-brown">Lebih Banyak</a>
                     </div>
                 </div>
             </div>
@@ -188,7 +190,6 @@ curl_close($ch);
                         </div>
                         <h5 class="card-title text-uppercase">Perawatan</h5>
                         <p class="card-text">Mari kita bahas langkah-langkah perawatan yang diperlukan untuk menjaga keberhasilan sistem ini.</p>
-                        <a href="#" class="text-decoration-none text-brown">Lebih Banyak</a>
                     </div>
                 </div>
             </div>

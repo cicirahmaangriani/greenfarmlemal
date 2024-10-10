@@ -49,16 +49,10 @@ function topFunction() {
 
 document.querySelectorAll(".smooth-scroll").forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    e.preventDefault(); // Mencegah default behavior dari href
-
-    const targetId = this.getAttribute("data-target"); // Ambil id dari target
-    const targetElement = document.getElementById(targetId); // Dapatkan elemen target
-
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop, // Gulir ke bagian elemen
-        behavior: "smooth", // Gulir dengan animasi halus
-      });
-    }
+    e.preventDefault();
+    const targetId = this.getAttribute("href");
+    document.querySelector(targetId).scrollIntoView({
+      behavior: "smooth",
+    });
   });
 });
