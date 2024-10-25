@@ -101,9 +101,7 @@ curl_close($ch);
             <div class="col-md-2 col-sm-4 forecast-card <?= $weather_class; ?> text-white rounded p-3 m-2">
                 <h4><?= $forecast['day']; ?></h4>
                 <img src="./layout/image/weather/<?= $weather_class; ?>.png" alt="Weather icon" class="mb-2 img-fluid">
-                <p>Weather Code: <?= $forecast['weather_code']; ?></p>
-                <p>Max Temp: <?= $forecast['temperature_max']; ?>°C</p>
-                <p>Min Temp: <?= $forecast['temperature_min']; ?>°C</p>
+                <p> <?= $forecast['temperature_min']; ?> °C - <?= $forecast['temperature_max']; ?> °C</p>
             </div>
         <?php endforeach; ?>
     </div>

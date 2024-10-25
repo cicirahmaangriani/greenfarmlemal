@@ -29,19 +29,14 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4, .navbar a {
   font-family: "Poppins", sans-serif; /* Untuk heading */
   font-weight: 600; /* Atur ketebalan untuk heading jika diinginkan */
 }
 
 p {
-  font-family: "Roboto", sans-serif; /* Untuk paragraf */
+  font-family: "Poppins", sans-serif; /* Untuk paragraf */
   font-size: 16px; /* Ukuran font untuk paragraf */
-}
-
-.navbar a {
-  font-family: "Poppins", sans-serif; /* Untuk heading */
-  font-weight: 600; /* Atur ketebalan untuk heading jika diinginkan */
 }
 
 .container-fluid {
@@ -176,42 +171,35 @@ p {
 /* Cuaca Cerah */
 .forecast-card.clear-sky {
   background-color: #ffd700; /* Warna kuning cerah */
-  color: #333; /* Teks berwarna gelap */
 }
 
 /* Cuaca Berawan Sebagian */
 .forecast-card.partly-cloudy {
   background-color: #c0c0c0; /* Warna abu-abu lembut */
-  color: #333;
 }
 
 /* Cuaca Berkabut */
 .forecast-card.fog {
   background-color: #dcdcdc; /* Warna abu-abu sangat ringan */
-  color: #333;
 }
 
 /* Hujan Gerimis */
 .forecast-card.drizzle {
   background-color: #87cefa; /* Warna biru muda untuk gerimis */
-  color: #333;
 }
 
 .forecast-card.rain {
   background-color: #4682b4; /* Warna ungu tua */
-  color: #fff;
 }
 
 /* Hujan Petir */
 .forecast-card.thunderstorm {
   background-color: #4b0082; /* Warna ungu tua */
-  color: #fff;
 }
 
 /* Default jika tidak ada cuaca yang sesuai */
 .forecast-card.default-weather {
   background-color: #d3d3d3; /* Warna abu-abu default */
-  color: #333;
 }
 
 .forecast-card h4 {
@@ -346,6 +334,8 @@ p {
 
 .card-text {
   color: #7d8f69;
+  font-family: "Poppins", sans-serif; /* Untuk paragraf */
+  font-size: 16px; /* Ukuran font untuk paragraf */
 }
 
 .shadow-sm {
@@ -494,10 +484,72 @@ footer {
 }
 
 .aquaponik-section,
-.stepsa-section {
+.stepsa-section, .aquaponik-systems-section {
   background-color: #fefae0;
   padding: 50px 0;
   padding-bottom: 0; /* Mengurangi jarak bawah dari section terakhir */
+}
+
+.aquaponik-section .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.system-image {
+  width: 75%;
+  height: auto; /* Memastikan gambar tetap proporsional */
+  margin-bottom: 20px; /* Memberikan jarak antara gambar pertama dan kedua */
+}
+
+.system-image2 {
+  width: 73%;
+  height: auto; /* Memastikan gambar tetap proporsional */
+  margin-left: -15px;
+  margin-bottom: 20px; /* Memberikan jarak antara gambar pertama dan kedua */
+}
+
+.systemtext2 {
+  margin-left: -15px;
+}
+
+.judulsistem {
+  font-family: "Poppins", sans-serif; /* Untuk heading */
+  font-weight: 600; /* Atur ketebalan untuk heading jika diinginkan */
+  color: #858983;
+}
+
+.judulsistem2 {
+  font-family: "Poppins", sans-serif; /* Untuk heading */
+  font-weight: 600; /* Atur ketebalan untuk heading jika diinginkan */
+  color: #858983;
+  margin-left: -15px;
+}
+
+.teksvideo {
+
+}
+
+.video-container {
+  width: 100%; /* Lebar kontainer penuh */
+  max-width: 720px; /* Batas lebar maksimal untuk video */
+  margin: 0 auto; /* Memusatkan video */
+  position: relative; /* Dibutuhkan untuk pengaturan aspect ratio */
+  padding-bottom: 56.25%; /* Aspect ratio 16:9 (9/16 = 0.5625) */
+  height: 0;
+}
+
+.video-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Menghapus border default */
+}
+
+.teksvideo {
+
 }
 
 .stepsa-section h5 {

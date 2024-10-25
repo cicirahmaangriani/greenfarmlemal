@@ -11,93 +11,62 @@ include 'layout/navbar.php';
             <img src="./layout/image/aquaponikpage.png" alt="Aquaponik" class="img-fluid rounded" style="width: 350px;">
         </div>
         <div class="col-md-5">
-            <h3 class="text-primary">Aquaponik</h3>
             <p>
                 Aquaponik adalah sistem pertanian berkelanjutan yang menggabungkan budidaya ikan dan tanaman. Limbah ikan menyediakan nutrisi bagi tanaman, sementara tanaman menyaring air untuk ikan, menciptakan sirkulasi yang efisien. Sistem ini menciptakan ekosistem yang berkelanjutan, di mana ikan dan tanaman saling mendukung, serta menggunakan air lebih efisien dibanding metode pertanian konvensional.
             </p>
         </div>
     </div>
 
+
     <div class="stepsa-section py-5">
         <div class="row justify-content-center">
             <div class="forecast-header mb-4 text-center">
                 <h5 class="text-uppercase">Langkah - Langkah</h5>
             </div>
-            <div class="col-md-8">
-                <ul class="stepsa-list">
-                    <li>
-                        <div class="circle bg-primary"></div>
-                        <div class="stepa-content">
-                            <h6>Siapkan Kolam Ikan</h6>
-                            <p>Pilih tangki atau kolam untuk ikan, dan pastikan kapasitasnya sesuai dengan jumlah ikan yang ingin dipelihara.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="circle bg-info"></div>
-                        <div class="stepa-content">
-                            <h6>Pilih Jenis Ikan</h6>
-                            <p>Muliakan dengan ikan yang tahan terhadap lingkungan sistem aquaponik, seperti lele, nila, atau mas.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="circle bg-success"></div>
-                        <div class="stepa-content">
-                            <h6>Rancang Sistem Sirkulasi Air</h6>
-                            <p>Pasang sistem pipa untuk mengalirkan air dari kolam ikan ke tanaman, serta saringan untuk mengolah limbah ikan.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="circle bg-warning"></div>
-                        <div class="stepa-content">
-                            <h6>Siapkan Tempat Tanaman</h6>
-                            <p>Pilih sistem hidroponik untuk tanaman, seperti NFT atau rakit apung, agar nutrisi yang disediakan dari kolam ikan dapat mengalir melewati akar tanaman.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="circle bg-info"></div>
-                        <div class="stepa-content">
-                            <h6>Pilih Tanaman</h6>
-                            <p>Muliakan dengan tanaman yang tumbuh cepat seperti sayuran hijau, selada, atau rempah-rempah yang cocok dengan nutrisi yang dihasilkan oleh ikan.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="circle bg-primary"></div>
-                        <div class="stepa-content">
-                            <h6>Pantau Sistem</h6>
-                            <p>Cek kualitas air secara berkala (termasuk pH dan amonia), dan perhatikan kesehatan ikan serta pertumbuhan tanaman.</p>
-                        </div>
-                    </li>
-                </ul>
+            <div class="col-md-5">
+                <h3>Panduan Aquaponik Untuk Pemula</h3>
+                <p class="teksvideo">
+                    Pelajari cara menggabungkan sistem akuakultur dan hidroponik dalam satu metode pertanian modern! Dalam tutorial ini, kamu akan diajarkan cara membangun sistem aquaponik sederhana yang cocok untuk pemula, mulai dari mempersiapkan ikan, memilih tanaman yang cocok, hingga merawat ekosistem agar tumbuh seimbang dan produktif. Video ini dirancang untuk membantu kamu memulai berkebun aquaponik di rumah, baik untuk konsumsi pribadi maupun proyek pertanian skala kecil. Selamat mencoba dan nikmati panen ikan serta sayuran segarmu!
+                </p>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="video-container">
+                    <iframe class="video-frame" src="https://www.youtube.com/embed/s96jfFK5lXg?si=meTQagnRT2Tz8apy" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="aquaponik-systems" class="aquaponik-section container-fluid py-5">
+<section id="aquaponik-systems" class="aquaponik-systems-section container-fluid py-5">
     <div class="row justify-content-center align-items-center text-center">
         <div class="forecast-header mb-4 text-center">
             <h5 class="text-uppercase">Jenis Sistem</h5>
         </div>
-        <div class="col-md-5">
-            <div class="card border-0 shadow-sm mb-4">
-                <img src="./layout/image/mediabed.png" alt="Media Bed" class="card-img-top rounded" style="width: 90%; max-width: 300px; margin: auto;">
-                <div class="card-body">
-                    <h6 class="card-title text-uppercase text-muted">Sistem Media Bed</h6>
-                    <p class="card-text">
-                        Tanaman ditanam di atas media seperti kerikil atau tanah liat di mana air yang berasal dari kolam ikan mengalir dan membawa nutrisi. Media ini juga berfungsi sebagai penyaring biologis untuk bakteri yang mengubah limbah ikan menjadi nutrisi yang dapat diserap tanaman.
-                    </p>
-                </div>
+
+        <!-- Media Bed Section -->
+        <div class="col-md-7 d-flex flex-md-row align-items-center mb-4">
+            <div>
+                <img src="./layout/image/mediabed.png" alt="Media Bed" class="img-fluid system-image">
+            </div>
+            <div class="text-md-start p-md-3">
+                <h5 class="judulsistem">SISTEM MEDIA BED</h5>
+                <p>
+                    Tanaman ditanam di atas media seperti kerikil atau tanah liat di mana air yang berasal dari kolam ikan mengalir dan membawa nutrisi. Media ini juga berfungsi sebagai penyaring biologis untuk bakteri yang mengubah limbah ikan menjadi nutrisi yang dapat diserap tanaman.
+                </p>
             </div>
         </div>
-        <div class="col-md-5">
-            <div class="card border-0 shadow-sm mb-4">
-                <img src="./layout/image/nft.png" alt="NFT Aquaponik" class="card-img-top rounded" style="width: 90%; max-width: 300px; margin: auto;">
-                <div class="card-body">
-                    <h6 class="card-title text-uppercase text-muted">Sistem NFT Aquaponik</h6>
-                    <p class="card-text">
-                        Mirip dengan sistem NFT pada hidroponik, namun di sini air dari kolam ikan mengalir melalui pipa, memberi nutrisi ke akar tanaman. Limbah ikan menjadi sumber nutrisi utama, sehingga air harus dijaga bersih untuk menjaga keseimbangan ekosistem.
-                    </p>
-                </div>
+
+        <!-- NFT Section -->
+        <div class="col-md-7 d-flex flex-md-row align-items-center">
+            <div>
+                <img src="./layout/image/nft.png" alt="NFT Aquaponik" class="img-fluid system-image2">
+            </div>
+            <div class="text-md-start p-md-3">
+                <h5 class="judulsistem2">SISTEM NFT AQUAPONIK</h5>
+                <p class="systemtext2">
+                    Mirip dengan sistem NFT pada hidroponik, namun di sini air dari kolam ikan mengalir melalui pipa, memberi nutrisi ke akar tanaman. Limbah ikan menjadi sumber nutrisi utama, sehingga air harus dijaga bersih untuk menjaga keseimbangan ekosistem.
+                </p>
             </div>
         </div>
     </div>

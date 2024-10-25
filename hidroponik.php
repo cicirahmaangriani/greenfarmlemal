@@ -11,8 +11,7 @@ include 'layout/navbar.php';
             <img src="./layout/image/hidroponikpage.png" alt="Aquaponik" class="img-fluid rounded" style="width: 350px;">
         </div>
         <div class="col-md-5">
-            <h3 class="text-primary">Hidroponik</h3>
-            <p class="text-muted">
+            <p>
                 Hidroponik adalah metode menanam tanpa tanah, menggunakan air yang kaya nutrisi untuk memberi makan tanaman. Di mana akar tanaman ditanam dalam air atau media tumbuh seperti pasir, kerikil, atau serat kelapa. Ini efisien dalam penggunaan air dan cocok untuk ruang terbatas atau lingkungan yang tidak cocok untuk pertanian tradisional.
             </p>
         </div>
@@ -23,81 +22,50 @@ include 'layout/navbar.php';
             <div class="forecast-header mb-4 text-center">
                 <h5 class="text-uppercase">Langkah - Langkah</h5>
             </div>
-            <div class="col-md-8">
-                <ul class="stepsa-list">
-                    <li>
-                        <div class="circle bg-primary"></div>
-                        <div class="stepa-content">
-                            <h6>Pilih Sistem Hidroponik</h6>
-                            <p>Tentukan jenis sistem yang akan digunakan, seperti sistem wick, NFT (Nutrient Film Technique), atau sistem rakit apung. Pilihan sistem bergantung pada skala, anggaran, dan jenis tanaman.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="circle bg-info"></div>
-                        <div class="stepa-content">
-                            <h6>Pilih Media Tanam</h6>
-                            <p>Gunakan media tanam non-tanah seperti rockwool, perlite, vermikulit, atau serat kelapa. Media ini mendukung akar tanpa tanah.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="circle bg-success"></div>
-                        <div class="stepa-content">
-                            <h6>Siapkan Nutrisi</h6>
-                            <p>Gunakan larutan nutrisi yang khusus untuk hidroponik, yang mengandung semua unsur hara yang diperlukan tanaman.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="circle bg-warning"></div>
-                        <div class="stepa-content">
-                            <h6>Sediakan Air dan Sistem Penyiraman</h6>
-                            <p>Gunakan air bersih dan pastikan pH air berada pada tingkat ideal (biasanya 5.5-6.5). Instal sistem penyiraman atau pompa jika diperlukan.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="circle bg-info"></div>
-                        <div class="stepa-content">
-                            <h6>Pilih Tanaman</h6>
-                            <p>Mulailah dengan tanaman yang mudah seperti selada, bayam, atau basil, karena mereka cepat tumbuh dan cocok untuk pemula.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="circle bg-primary"></div>
-                        <div class="stepa-content">
-                            <h6>Pemantauan dan Perawatan</h6>
-                            <p>Pantau pertumbuhan tanaman, suhu, dan kualitas air secara rutin.</p>
-                        </div>
-                    </li>
-                </ul>
+            <div class="col-md-5">
+                <h3>Panduan Hidroponik Untuk Pemula</h3>
+                <p class="teksvideo">
+                    Mulai petualangan berkebun tanpa tanah dengan metode hidroponik! Dalam video ini, kamu akan dipandu langkah demi langkah mulai dari persiapan alat dan bahan, memilih sistem hidroponik yang cocok, hingga cara merawat tanaman agar tumbuh optimal. Dengan metode ini, kamu bisa menanam sayuran segar di rumah, bahkan di lahan yang terbatas. Video ini dirancang khusus untuk pemula, jadi kamu bisa mengikuti dengan mudah. Selamat mencoba dan nikmati hasil panenmu!"
+                </p>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="video-container">
+                    <iframe class="video-frame" src="https://www.youtube.com/embed/9l-ti-tT9xw?si=IU7_Opj0il-uCScp" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="aquaponik-systems" class="aquaponik-section container-fluid py-5">
+<section id="aquaponik-systems" class="aquaponik-systems-section container-fluid py-5">
     <div class="row justify-content-center align-items-center text-center">
         <div class="forecast-header mb-4 text-center">
             <h5 class="text-uppercase">Jenis Sistem</h5>
         </div>
-        <div class="col-md-5">
-            <div class="card border-0 shadow-sm mb-4">
-                <img src="./layout/image/wick.png" alt="Media Bed" class="card-img-top rounded" style="width: 90%; max-width: 300px; margin: auto;">
-                <div class="card-body">
-                    <h6 class="card-title text-uppercase text-muted">SISTEM WICK</h6>
-                    <p class="card-text">
-                        Sistem paling sederhana yang menggunakan sumbu untuk menyerap nutrisi dari larutan ke akar tanaman. Cocok untuk tanaman kecil dengan kebutuhan air rendah. Tidak memerlukan pompa atau listrik, sehingga sangat mudah dioperasikan.
-                    </p>
-                </div>
+
+        <!-- Media Bed Section -->
+        <div class="col-md-7 d-flex flex-md-row align-items-center mb-4">
+            <div>
+                <img src="./layout/image/wick.png" alt="Media Bed" class="img-fluid system-image">
+            </div>
+            <div class="text-md-start p-md-3">
+                <h5 class="judulsistem">SISTEM WICK</h5>
+                <p>
+                Sistem paling sederhana yang menggunakan sumbu untuk menyerap nutrisi dari larutan ke akar tanaman. Cocok untuk tanaman kecil dengan kebutuhan air rendah. Tidak memerlukan pompa atau listrik, sehingga sangat mudah dioperasikan.
+                </p>
             </div>
         </div>
-        <div class="col-md-5">
-            <div class="card border-0 shadow-sm mb-4">
-                <img src="./layout/image/dwc.png" alt="NFT Aquaponik" class="card-img-top rounded" style="width: 90%; max-width: 300px; margin: auto;">
-                <div class="card-body">
-                    <h6 class="card-title text-uppercase text-muted">SISTEM DEEP WATER CULTURE (DWC)</h6>
-                    <p class="card-text">
-                        Dalam sistem ini, akar tanaman direndam langsung dalam larutan nutrisi. Oksigen disuplai ke akar melalui aerator yang menjaga air tetap kaya oksigen. DWC populer karena kesederhanaannya dan cocok untuk pertumbuhan cepat tanaman berdaun seperti selada.
-                    </p>
-                </div>
+
+        <!-- NFT Section -->
+        <div class="col-md-7 d-flex flex-md-row align-items-center">
+            <div>
+                <img src="./layout/image/dwc.png" alt="NFT Aquaponik" class="img-fluid system-image">
+            </div>
+            <div class="text-md-start p-md-3">
+                <h5 class="judulsistem2">SISTEM DEEP WATER CULTURE (DWC)</h5>
+                <p class="systemtext2">
+                Dalam sistem ini, akar tanaman direndam langsung dalam larutan nutrisi. Oksigen disuplai ke akar melalui aerator yang menjaga air tetap kaya oksigen. DWC populer karena kesederhanaannya dan cocok untuk pertumbuhan cepat tanaman berdaun seperti selada.
+                </p>
             </div>
         </div>
     </div>
