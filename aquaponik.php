@@ -12,7 +12,7 @@ include 'layout/navbar.php';
         </div>
         <div class="col-md-5">
             <h3 class="text-primary">Aquaponik</h3>
-            <p class="text-muted">
+            <p>
                 Aquaponik adalah sistem pertanian berkelanjutan yang menggabungkan budidaya ikan dan tanaman. Limbah ikan menyediakan nutrisi bagi tanaman, sementara tanaman menyaring air untuk ikan, menciptakan sirkulasi yang efisien. Sistem ini menciptakan ekosistem yang berkelanjutan, di mana ikan dan tanaman saling mendukung, serta menggunakan air lebih efisien dibanding metode pertanian konvensional.
             </p>
         </div>

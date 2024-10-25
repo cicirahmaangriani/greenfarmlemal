@@ -20,10 +20,28 @@
 
 html,
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif; /* Untuk teks utama */
   line-height: 1.6;
   margin: 0;
   padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Poppins", sans-serif; /* Untuk heading */
+  font-weight: 600; /* Atur ketebalan untuk heading jika diinginkan */
+}
+
+p {
+  font-family: "Roboto", sans-serif; /* Untuk paragraf */
+  font-size: 16px; /* Ukuran font untuk paragraf */
+}
+
+.navbar a {
+  font-family: "Poppins", sans-serif; /* Untuk heading */
+  font-weight: 600; /* Atur ketebalan untuk heading jika diinginkan */
 }
 
 .container-fluid {
@@ -137,7 +155,7 @@ body {
 }
 
 .forecast-card {
-  width: 120px;
+  width: 170px;
   padding: 15px;
   border-radius: 10px;
   text-align: center;
@@ -155,46 +173,45 @@ body {
   padding: 0; /* Menghapus padding */
 }
 
-/* Warna untuk Cuaca Cerah */
-.forecast-card.sunny {
-  background-color: #ffd700;
-  color: #333;
+/* Cuaca Cerah */
+.forecast-card.clear-sky {
+  background-color: #ffd700; /* Warna kuning cerah */
+  color: #333; /* Teks berwarna gelap */
 }
 
-/* Warna untuk Cuaca Cerah Berawan */
+/* Cuaca Berawan Sebagian */
 .forecast-card.partly-cloudy {
-  background-color: #ffec8b;
+  background-color: #c0c0c0; /* Warna abu-abu lembut */
   color: #333;
 }
 
-/* Warna untuk Cuaca Berawan */
-.forecast-card.cloudy {
-  background-color: #a9a9a9;
-  color: #fff;
-}
-
-/* Warna untuk Hujan Ringan */
-.forecast-card.light-rain {
-  background-color: #87cefa;
+/* Cuaca Berkabut */
+.forecast-card.fog {
+  background-color: #dcdcdc; /* Warna abu-abu sangat ringan */
   color: #333;
 }
 
-/* Warna untuk Hujan Sedang */
-.forecast-card.moderate-rain {
-  background-color: #4682b4;
+/* Hujan Gerimis */
+.forecast-card.drizzle {
+  background-color: #87cefa; /* Warna biru muda untuk gerimis */
+  color: #333;
+}
+
+.forecast-card.rain {
+  background-color: #4682b4; /* Warna ungu tua */
   color: #fff;
 }
 
-/* Warna untuk Hujan Lebat */
-.forecast-card.heavy-rain {
-  background-color: #0000cd;
-  color: #fff;
-}
-
-/* Warna untuk Hujan Petir */
+/* Hujan Petir */
 .forecast-card.thunderstorm {
-  background-color: #4b0082;
+  background-color: #4b0082; /* Warna ungu tua */
   color: #fff;
+}
+
+/* Default jika tidak ada cuaca yang sesuai */
+.forecast-card.default-weather {
+  background-color: #d3d3d3; /* Warna abu-abu default */
+  color: #333;
 }
 
 .forecast-card h4 {
@@ -203,9 +220,8 @@ body {
 }
 
 .forecast-card img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
+  width: 100%; /* Atur lebar sesuai kebutuhan */
+  height: auto; /* Agar proporsional */
 }
 
 .forecast-card p {
@@ -215,6 +231,28 @@ body {
 .farming-methods {
   background-color: #fefae0;
   padding: 20px 10%;
+}
+
+.farming-methods .row {
+  display: flex; /* Menggunakan Flexbox untuk menyelaraskan */
+  justify-content: center; /* Menyelaraskan konten di tengah */
+  align-items: stretch; /* Memastikan semua item memiliki tinggi yang sama */
+}
+
+.farming-methods .card {
+  background-color: #fff; /* Warna latar belakang */
+  border-radius: 10px; /* Sudut membulat */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan */
+  overflow: hidden; /* Agar elemen tidak meluber */
+}
+
+.farming-methods .card img {
+  max-width: 100%; /* Gambar responsif */
+  height: auto; /* Mempertahankan rasio aspek */
+}
+
+.farming-methods .card-body {
+  padding: 20px; /* Jarak dalam card */
 }
 
 .farming-methods h5 {
@@ -240,6 +278,17 @@ body {
 
 .farming-methods p {
   color: #7d8f69;
+}
+
+.btn-custom {
+  background-color: #6a994e; /* Mengatur warna latar belakang */
+  color: #fff; /* Mengatur warna teks jika diperlukan */
+  border: none; /* Menghilangkan border jika ada */
+}
+
+.btn-custom:hover {
+  background-color: #5a7a3e; /* Warna saat hover (opsional) */
+  color: #fff; /* Mengatur warna teks jika diperlukan */
 }
 
 .steps-section {

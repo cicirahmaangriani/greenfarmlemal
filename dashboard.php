@@ -3,42 +3,49 @@
 $title = 'Dashboard';
 include 'layout/header.php';
 
-$latitude = '-6.66';
-$longitude = '106.92';
-$api_key = 'bb014173b1c14727ddedd47b9f969de9';
+$latitude = htmlspecialchars('-6.66');
+$longitude = htmlspecialchars('106.92');
+$api_key = htmlspecialchars('bb014173b1c14727ddedd47b9f969de9');
 
-$api_url = 'https://api.openweathermap.org/data/2.5/forecast?lat='.$latitude.'&lon='.$longitude.'&appid='.$api_key;
+$api_urlbaru = 'https://api.open-meteo.com/v1/forecast?latitude='.$latitude.'&longitude='.$longitude.'&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FBangkok';
 
 // Inisialisasi cURL
 $ch = curl_init();
 
 // Set opsi untuk cURL
-curl_setopt($ch, CURLOPT_URL, $api_url);         // URL tujuan
+curl_setopt($ch, CURLOPT_URL, $api_urlbaru);         // URL tujuan
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  // Mengembalikan hasil sebagai string
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Matikan verifikasi SSL (untuk server lokal)
 
 // Eksekusi cURL
 $response = curl_exec($ch);
 
+if (curl_errno($ch)) {
+    $error_msg = curl_error($ch);
+    echo "cURL error: " . $error_msg;
+}
+
 $weather_array = json_decode($response, true);
+if (json_last_error() !== JSON_ERROR_NONE) {
+    echo "Error decoding JSON response: " . json_last_error_msg();
+}
 $forecast_data = []; // Array untuk menyimpan data setiap hari
 
 // Iterasi melalui data cuaca dari API (misalnya, 7 data untuk 7 hari)
-for ($i = 0; $i < 7; $i++) {
-    // Pastikan indeks tersedia sebelum mengaksesnya
-    if (isset($weather_array['list'][$i])) {
-        $temperature = $weather_array['list'][$i]['main']['temp'];
-        $temperature_in_celsius = $temperature - 273.15;
+if (isset($weather_array['daily'])) {
+    $daily = $weather_array['daily'];
+    $dates = $daily['time'];
+    $weather_codes = $daily['weather_code'];
+    $max_temps = $daily['temperature_2m_max'];
+    $min_temps = $daily['temperature_2m_min'];
 
-        $weather_icon = isset($weather_array['list'][$i]['weather'][0]['icon']) ? $weather_array['list'][$i]['weather'][0]['icon'] : 'default-icon';
-        $description = isset($weather_array['list'][$i]['weather'][0]['description']) ? $weather_array['list'][$i]['weather'][0]['description'] : 'No description';
-
-        // Simpan data ini ke array
+    // Populate the forecast_data array for the next 7 days
+    for ($i = 0; $i < min(count($dates), 7); $i++) {
         $forecast_data[] = [
-            'day' => date('l', strtotime('+' . $i . ' day')), // Mendapatkan nama hari (Senin, Selasa, dst.)
-            'temperature' => round($temperature_in_celsius, 2),
-            'icon' => $weather_icon,
-            'description' => $description
+            'day' => date('l', strtotime($dates[$i])), // Get the day name
+            'weather_code' => $weather_codes[$i],
+            'temperature_max' => round($max_temps[$i], 2),
+            'temperature_min' => round($min_temps[$i], 2),
         ];
     }
 }
@@ -57,7 +64,7 @@ curl_close($ch);
                 </p>
             </div>
             <div class="image col-md-6 text-center">
-                <img src="./layout/image/bghome1.png" alt="Nature and Technology Illustration" class="img-fluid" style="max-width: 400px; height: auto;">
+                <img src="./layout/image/bghome.png" alt="Nature and Technology Illustration" class="img-fluid" style="max-width: 400px; height: auto;">
             </div>
         </div>
     </section>
@@ -70,51 +77,33 @@ curl_close($ch);
     <div class="row justify-content-center">
         <?php foreach ($forecast_data as $forecast): ?>
             <?php
-                // Map deskripsi atau icon code ke dalam kelas cuaca
-                $weather_class = '';
-                switch ($forecast['icon']) {
-                    case '01d':
-                    case '01n':
-                        $weather_class = 'sunny'; // cerah
-                        break;
-                    case '02d':
-                    case '02n':
-                        $weather_class = 'partly-cloudy'; // cerah berawan
-                        break;
-                    case '03d':
-                    case '03n':
-                    case '04d':
-                    case '04n':
-                        $weather_class = 'cloudy'; // berawan
-                        break;
-                    case '09d':
-                    case '09n':
-                        $weather_class = 'light-rain'; // hujan ringan
-                        break;
-                    case '10d':
-                    case '10n':
-                        $weather_class = 'moderate-rain'; // hujan sedang
-                        break;
-                    case '11d':
-                    case '11n':
-                        $weather_class = 'thunderstorm'; // hujan petir
-                        break;
-                    case '13d':
-                    case '13n':
-                        $weather_class = 'snow'; // salju (jika berlaku)
-                        break;
-                    case '50d':
-                    case '50n':
-                        $weather_class = 'mist'; // berkabut
-                        break;
-                    default:
-                        $weather_class = 'default-weather'; // kondisi tidak terdefinisi
-                }
+                // Map deskripsi atau icon code ke dalam kelas cuaca berdasarkan weather_code dari Open-Meteo
+                $icon_class_map = [
+                    0 => 'clear-sky',     
+                    1 => 'partly-cloudy',  
+                    2 => 'partly-cloudy',
+                    3 => 'partly-cloudy',
+                    45 => 'fog',
+                    48 => 'fog',
+                    51 => 'drizzle',
+                    53 => 'drizzle',
+                    55 => 'drizzle',
+                    61 => 'rain',
+                    63 => 'rain',
+                    65 => 'rain',
+                    80 => 'rain',
+                    96 => 'thunderstorm',
+                    99 => 'thunderstorm'
+                ];
+
+                $weather_class = isset($icon_class_map[$forecast['weather_code']]) ? $icon_class_map[$forecast['weather_code']] : 'default-weather';
             ?>
             <div class="col-md-2 col-sm-4 forecast-card <?= $weather_class; ?> text-white rounded p-3 m-2">
                 <h4><?= $forecast['day']; ?></h4>
-                <img src="https://openweathermap.org/img/wn/<?= $forecast['icon']; ?>@2x.png" alt="<?= $forecast['description']; ?>" class="mb-2 img-fluid">
-                <p><?= "Temperature: " . $forecast['temperature'] . "°C"; ?></p>
+                <img src="./layout/image/weather/<?= $weather_class; ?>.png" alt="Weather icon" class="mb-2 img-fluid">
+                <p>Weather Code: <?= $forecast['weather_code']; ?></p>
+                <p>Max Temp: <?= $forecast['temperature_max']; ?>°C</p>
+                <p>Min Temp: <?= $forecast['temperature_min']; ?>°C</p>
             </div>
         <?php endforeach; ?>
     </div>
@@ -130,67 +119,26 @@ curl_close($ch);
         <div class="col-md-5 d-flex align-items-stretch mb-4">
             <div class="card border-0 text-center">
                 <div class="card-body">
-                    <h3 class="text-primary mb-3">Aquaponik</h3>
+                    <h3 style="color: #03045E;" class="mb-3">Aquaponik</h3>
                     <a href="aquaponik">
-                    <img src="./layout/image/aquaponik.jpg" alt="Aquaponik" class="img-fluid rounded-image mb-3">
+                        <img src="./layout/image/aquaponik.jpg" alt="Aquaponik" class="img-fluid rounded-image mb-3">
                     </a>
-                    <p class="text-muted">Aquaponik adalah sistem pertanian berkelanjutan yang menggabungkan budidaya ikan dan tanaman. Limbah ikan menyediakan nutrisi bagi tanaman, sementara tanaman menyaring air untuk ikan, menciptakan sirkulasi yang efisien. Sistem ini menciptakan ekosistem yang berkelanjutan, di mana ikan dan tanaman saling mendukung, serta menggunakan air lebih efisien dibanding metode pertanian konvensional.</p>
+                    <p class="text-muted">Aquaponik adalah sistem pertanian berkelanjutan yang menggabungkan budidaya ikan dan tanaman...</p>
+                    <a type="button" class="btn btn-custom" href="aquaponik">Lihat Lainnya</a>
                 </div>
             </div>
         </div>
 
-        <!-- hidroponik -->
+        <!-- Hidroponik -->
         <div class="col-md-5 d-flex align-items-stretch mb-4">
             <div class="card border-0 text-center">
                 <div class="card-body">
-                    <h3 class="text-primary mb-3">Hidroponik</h3>
+                    <h3 style="color: #03045E;" class="mb-3">Hidroponik</h3>
                     <a href="hidroponik">
-                    <img src="./layout/image/hidroponik1.png" alt="Hydroponik" class="img-fluid rounded-image mb-3">
+                        <img src="./layout/image/hidroponik1.png" alt="Hidroponik" class="img-fluid rounded-image mb-3">
                     </a>
-                    <p class="text-muted">Hidroponik adalah metode menanam tanpa tanah, menggunakan air yang kaya nutrisi untuk memberi makan tanaman. Di mana akar tanaman ditanam dalam air atau media tumbuh seperti pasir, kerikil, atau serat kelapa. Ini efisien dalam penggunaan air dan cocok untuk ruang terbatas atau lingkungan yang tidak cocok untuk pertanian tradisional.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="farmdetails" class="steps-section py-5">
-    <div class="container text-center">
-        <div class="row justify-content-center">
-            <!-- Langkah Awal -->
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm p-4">
-                    <div class="card-body">
-                        <div class="icon mb-3">
-                            <i class="fas fa-map-marker-alt fa-2x text-brown"></i>
-                        </div>
-                        <h5 class="card-title text-uppercase">Langkah Awal</h5>
-                        <p class="card-text">Mari kita bahas langkah-langkah utama dari kedua sistem Aquaponik dan Hidroponik ini.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Jenis -->
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm p-4">
-                    <div class="card-body">
-                        <div class="icon mb-3">
-                            <i class="fas fa-seedling fa-2x text-brown"></i>
-                        </div>
-                        <h5 class="card-title text-uppercase">Jenis</h5>
-                        <p class="card-text">Mari kita jelajahi jenis-jenis utama dari kedua metode ini dan bagaimana mereka berfungsi.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Perawatan -->
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm p-4">
-                    <div class="card-body">
-                        <div class="icon mb-3">
-                            <i class="fas fa-hand-holding-water fa-2x text-brown"></i>
-                        </div>
-                        <h5 class="card-title text-uppercase">Perawatan</h5>
-                        <p class="card-text">Mari kita bahas langkah-langkah perawatan yang diperlukan untuk menjaga keberhasilan sistem ini.</p>
-                    </div>
+                    <p class="text-muted">Hidroponik adalah metode menanam tanpa tanah, menggunakan air yang kaya nutrisi untuk memberi makan tanaman...</p>
+                    <a type="button" class="btn btn-custom" href="hidroponik">Lihat Lainnya</a>
                 </div>
             </div>
         </div>
@@ -207,7 +155,7 @@ curl_close($ch);
             <img src="./layout/image/volunteer.png" alt="Volunteer Proyek Hijau" class="img-fluid" style="max-width: 75%; height: auto;">
         </div>
         <div class="col-md-5">
-            <h3 class="text-success mb-3">Volunteer Proyek Hijau</h3>
+            <h3 style="color: #283618;" class="mb-3">Volunteer Proyek Hijau</h3>
             <p class="text-muted">
                 Jadilah agen perubahan! Bergabunglah sebagai relawan Proyek Hijau dan bantu ciptakan dunia yang lebih bersih dan berkelanjutan. Setiap aksi kecil membawa dampak besar. Daftar sekarang dan mulai langkah menuju masa depan yang lebih hijau!
             </p>
